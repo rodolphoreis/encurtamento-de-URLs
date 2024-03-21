@@ -5,7 +5,20 @@ import { sql } from "./lib/postgres";
 const app = fastify();
 const PORT = 3000;
 
-app.get("/teste", () => {
+app.post("/links", async (request) => {
+  const createLinkSchema = z.object({
+    code: z.string().min(3),
+    url: z.string().url(),
+  });
+
+  const { code, url } = createLinkSchema.parse(request.body);
+
+  const result = await sql/* sql */ `
+INSERT INTO short_links (code, original_url)
+VALUES (${code}, ${url})
+RETURNING id
+`;
+
   return "OK";
 });
 
