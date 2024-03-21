@@ -1,4 +1,6 @@
 import fastify from "fastify";
+import { Schema, z } from "zod";
+import { sql } from "./lib/postgres";
 
 const app = fastify();
 const PORT = 3000;
