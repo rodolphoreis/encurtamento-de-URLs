@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch ./src/server.ts"
+    "dev": "tsx watch ./src/server.ts",
+    "setup": "tsx watch ./src/setup.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +16,8 @@
     "postgres": "^3.4.3",
     "redis": "^4.6.13",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
