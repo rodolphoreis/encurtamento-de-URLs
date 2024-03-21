@@ -7,6 +7,8 @@ app.get("/teste", () => {
   return "OK";
 });
 
+app.post("/teste", () => {});
+
 app
   .listen({
     port: PORT,
