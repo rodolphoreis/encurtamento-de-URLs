@@ -1,11 +1,12 @@
 
-GET http://localhost:3000/links
-
-###
 POST http://localhost:3000/links
 Content-Type: application/json
 
 {
-    "code": "rodolphoreis",
-    "url": "https://portfo-lio-psi.vercel.app/#about"
+    "code": "linkedin",
+    "url": "https://www.linkedin.com/feed/"
 }
+
+###
+GET http://localhost:3000/links
+
