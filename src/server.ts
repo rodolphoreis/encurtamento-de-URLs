@@ -1,11 +1,11 @@
 import fastify from "fastify";
-import { Schema, z } from "zod";
+import { z } from "zod";
 import { sql } from "./lib/postgres";
 
 const app = fastify();
 const PORT = 3000;
 
-app.post("/links", async (request) => {
+app.post("/links", async (request, reply) => {
   const createLinkSchema = z.object({
     code: z.string().min(3),
     url: z.string().url(),
@@ -19,10 +19,10 @@ VALUES (${code}, ${url})
 RETURNING id
 `;
 
-  return "OK";
-});
+  const link = result[0];
 
-app.post("/teste", () => {});
+  return reply.status(201).send({ shortLinkId: link.id });
+});
 
 app
   .listen({
