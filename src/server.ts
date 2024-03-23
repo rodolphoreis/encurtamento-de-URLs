@@ -7,6 +7,15 @@ import { error } from "console";
 const app = fastify();
 const PORT = 3000;
 
+app.get("/links", async () => {
+  const result = await sql/*sql*/ `
+  SELECT *
+  FROM short_links
+  ORDER BY created_at DESC
+  `;
+  return result;
+});
+
 app.post("/links", async (request, reply) => {
   const createLinkSchema = z.object({
     code: z.string().min(3),
