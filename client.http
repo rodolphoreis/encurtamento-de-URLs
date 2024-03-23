@@ -1,2 +1,11 @@
 
-GET http://localhost:3000/teste
+GET http://localhost:3000/links
+
+###
+POST http://localhost:3000/links
+Content-Type: application/json
+
+{
+    "code": "rodolphoreis",
+    "url": "https://portfo-lio-psi.vercel.app/#about"
+}
